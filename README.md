@@ -1,2 +1,4 @@
 # Adatbazis_beadando
-Adatbázis beadandó, aminek témája egy fodrászüzlet adatbázisának felépítése
+Halihó!!
+Ha itt vagy akkor biztos kíváncsi vagy milyen jó adatbázist raktunk össze a csapattal. Ahhoz, hogy jobban megértsd miről is van szó elmondom, hogy egy fodrászüzlet adatbázisát terveztük meg. :)
+
