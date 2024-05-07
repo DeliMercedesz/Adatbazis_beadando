@@ -23,21 +23,21 @@ ALTER TABLE fodraszok
 
 INSERT INTO fodraszok (fodrasz_id, nev, telefonszam, email, ertekeles, munkanap_fk)
 VALUES 
-    (1, 'Kovács Bence', 06301234567, 'bence.kovacs123@gmail.com', 4, 1),
-    (2, 'Nagy Eszter', 06305432123, 'eszter.nagy456@gmail.com', 5, 2),
-    (3, 'Tóth Gábor', 06309876543, 'gabor.toth789@gmail.com', 3, 3),
-    (4, 'Molnár Péter', 06301234568, 'peter.molnar785@gmail.com', 4, 4),
-    (5, 'Szabó Anna', 06305432124, 'anna.szabo895@gmail.com', 4, 7),
-    (6, 'Kiss Dóra', 06309876544, 'dora.kiss412@gmail.com', 5, 6),
-    (7, 'Varga Zoltán', 06301234569, 'zoltan.varga566@gmail.com', 3, 1),
-    (8, 'Fekete Márton', 06305432125, 'marton.fekete845@gmail.com', 4, 2),
-    (9, 'Németh Réka', 06309876545, 'reka.nemeth415@gmail.com', 5, 3),
-    (10, 'Horváth János', 06301234570, 'janos.horvath515@gmail.com', 4, 7),
-    (11, 'Simon Éva', 06305432126, 'eva.simon512@gmail.com', 3, 5),
-    (12, 'Kovács Gergő', 06309876546, 'gergo.kovacs485@gmail.com', 5, 6),
-    (13, 'Takács Petra', 06301234571, 'petra.takacs789@gmail.com', 4, 7),
-    (14, 'Mészáros Tamás', 06305432127, 'tamas.meszaros456@gmail.com', 4, 2),
-    (15, 'Varga Kinga', 06309876547, 'kinga.varga785@gmail.com', 3, 3);
+    (1, 'Kovács Bence', 06301234567, 'bence.kovacs123@gmail.com', 4),
+    (2, 'Nagy Eszter', 06305432123, 'eszter.nagy456@gmail.com', 5),
+    (3, 'Tóth Gábor', 06309876543, 'gabor.toth789@gmail.com', 3),
+    (4, 'Molnár Péter', 06301234568, 'peter.molnar785@gmail.com', 4),
+    (5, 'Szabó Anna', 06305432124, 'anna.szabo895@gmail.com', 4),
+    (6, 'Kiss Dóra', 06309876544, 'dora.kiss412@gmail.com', 5),
+    (7, 'Varga Zoltán', 06301234569, 'zoltan.varga566@gmail.com', 3),
+    (8, 'Fekete Márton', 06305432125, 'marton.fekete845@gmail.com', 4),
+    (9, 'Németh Réka', 06309876545, 'reka.nemeth415@gmail.com', 5),
+    (10, 'Horváth János', 06301234570, 'janos.horvath515@gmail.com', 4),
+    (11, 'Simon Éva', 06305432126, 'eva.simon512@gmail.com', 3),
+    (12, 'Kovács Gergő', 06309876546, 'gergo.kovacs485@gmail.com', 5),
+    (13, 'Takács Petra', 06301234571, 'petra.takacs789@gmail.com', 4),
+    (14, 'Mészáros Tamás', 06305432127, 'tamas.meszaros456@gmail.com', 4),
+    (15, 'Varga Kinga', 06309876547, 'kinga.varga785@gmail.com', 3);
 
 --Foglalasok tabla letrehozasa
 
@@ -54,7 +54,7 @@ CREATE TABLE foglalasok (
 );
 
 ALTER TABLE foglalasok
-    ADD CONSTRAINT fizetes_mod_kenyszer CHECK ( fizetesi_mod IN ( 'Bankkártya', 'Készpénz', 'Átutalás' ) );
+    ADD CONSTRAINT fizetes_mod_kenyszer CHECK ( fizetesi_mod IN ( 'Bankkártya', 'Készpénz', 'Átutalás', 'Nincs' ) );
 
 ALTER TABLE foglalasok ADD CONSTRAINT foglalasok_pk PRIMARY KEY ( foglalas_id );
 
@@ -65,6 +65,70 @@ ALTER TABLE foglalasok
 ALTER TABLE foglalasok
     ADD CONSTRAINT foglalasok_ugyfelek_fk FOREIGN KEY ( ugyfel_fk )
         REFERENCES ugyfelek ( ugyfel_id );
+
+INSERT INTO foglalasok (foglalas_id, idopont, ugyfel_fk, fodrasz_fk, kezdes, befejezes, fizetve, fizetesi_mod, megjegyzes)
+VALUES 
+(1, '2024-05-10 10:00', 3, 15, '2024-05-10 10:00', '2024-05-10 11:30', 'N', 'Nincs', '')
+    (2, '2024-05-21 08:00', 16, 4, '2024-05-21 08:05', '2024-05-21 09:35', 'I', 'Bankkártya', ‘Freestyle kezelés')
+    (3, '2024-05-04 13:00', 35, 2, '2024-05-04 13:00', '2024-05-04 14:30', 'N', 'Nincs', Gyors kezelés')
+    (4, '2024-05-02 08:00', 33, 10, '2024-05-02 08:04', '2024-05-02 09:34', 'I', 'Bankkártya', 'Időpont: 2024-05-02 08:04 – Gyors kezelés')
+    (5, '2024-05-07 13:00', 35, 7, '2024-05-07 13:00', '2024-05-07 14:30', 'I', 'Átutalás', 'Gyors kezelés')
+    (6, '2024-05-19 10:00', 1, 13, '2024-05-19 10:00', '2024-05-19 11:30', 'I', 'Bankkártya', '’)
+    (7, '2024-05-14 10:00', 22, 2, '2024-05-14 10:04', '2024-05-14 11:34', 'I', 'Átutalás', '')
+    (8, '2024-05-04 10:00', 39, 5, '2024-05-04 10:00', '2024-05-04 11:30', 'I', 'Bankkártya', '')
+    (9, '2024-05-15 12:00', 6, 9, '2024-05-15 12:07', '2024-05-15 13:37', 'N', 'Nincs', '')
+    (10, '2024-05-27 13:00', 24, 10, '2024-05-27 13:00', '2024-05-27 14:30', 'I', 'Bankkártya', '')
+    (11, '2024-05-03 08:00', 19, 2, '2024-05-03 08:00', '2024-05-03 09:30', 'I', 'Készpénz', '')
+    (12, '2024-05-13 10:00', 11, 6, '2024-05-13 10:06', '2024-05-13 11:36', 'N', 'Nincs', '')
+    (13, '2024-05-07 13:00', 39, 11, '2024-05-07 13:02', '2024-05-07 14:32', 'I', 'Bankkártya', '')
+    (14, '2024-05-24 09:00', 18, 15, '2024-05-24 09:07', '2024-05-24 10:37', 'I', 'Bankkártya', '')
+    (15, '2024-05-11 14:00', 4, 4, '2024-05-11 14:00', '2024-05-11 15:30', 'I', 'Átutalás', '')
+    (16, '2024-05-13 10:00', 21, 4, '2024-05-13 10:10', '2024-05-13 11:40', 'N', 'Nincs', '')
+    (17, '2024-05-13 13:00', 9, 4, '2024-05-13 13:05', '2024-05-13 14:35', 'N', 'Nincs', '')
+    (18, '2024-05-24 12:00', 26, 6, '2024-05-24 12:10', '2024-05-24 13:40', 'I', 'Készpénz', 'Gyors kezelés')
+    (19, '2024-05-17 11:00', 8, 3, '2024-05-17 11:01', '2024-05-17 12:31', 'I', 'Bankkártya', '')
+    (20, '2024-05-14 12:00', 39, 8, '2024-05-14 12:07', '2024-05-14 13:37', 'N', 'Nincs', '')
+    (21, '2024-05-18 14:00', 8, 11, '2024-05-18 14:00', '2024-05-18 15:30', 'N', 'Nincs', '')
+    (22, '2024-05-25 13:00', 28, 3, '2024-05-25 13:05', '2024-05-25 14:35', 'N', 'Nincs', '')
+    (23, '2024-05-01 13:00', 17, 9, '2024-05-01 13:00', '2024-05-01 14:30', 'I', 'Bankkártya', '')
+    (24, '2024-05-30 08:00', 20, 14, '2024-05-30 08:00', '2024-05-30 09:30', 'I', 'Készpénz', '')
+    (25, '2024-05-12 14:00', 1, 10, '2024-05-12 14:09', '2024-05-12 15:39', 'N', 'Nincs', '')
+    (26, '2024-05-16 08:00', 20, 4, '2024-05-16 08:06', '2024-05-16 09:36', 'I', 'Készpénz', '')
+    (27, '2024-05-29 12:00', 6, 12, '2024-05-29 12:00', '2024-05-29 13:30', 'N', 'Nincs', '')
+    (28, '2024-05-27 08:00', 35, 13, '2024-05-27 08:00', '2024-05-27 09:30', 'I', 'Készpénz', '')
+    (29, '2024-05-22 11:00', 11, 5, '2024-05-22 11:00', '2024-05-22 12:30', 'N', 'Nincs', '')
+    (30, '2024-05-31 09:00', 13, 12, '2024-05-31 09:00', '2024-05-31 10:30', 'N', 'Nincs', '')
+    (31, '2024-05-13 13:00', 29, 15, '2024-05-13 13:00', '2024-05-13 14:30', 'N', 'Nincs', '')
+    (32, '2024-05-04 09:00', 2, 10, '2024-05-04 09:06', '2024-05-04 10:36', 'I', 'Bankkártya', '')
+    (33, '2024-05-08 08:00', 15, 2, '2024-05-08 08:01', '2024-05-08 09:31', 'I', 'Átutalás', '')
+    (34, '2024-05-03 12:00', 14, 9, '2024-05-03 12:08', '2024-05-03 13:38', 'I', 'Bankkártya', '')
+    (35, '2024-05-30 12:00', 16, 13, '2024-05-30 12:00', '2024-05-30 13:30', 'N', 'Nincs', '')
+    (36, '2024-05-26 11:00', 28, 6, '2024-05-26 11:02', '2024-05-26 12:32', 'N', 'Nincs', '')
+    (37, '2024-05-14 11:00', 4, 11, '2024-05-14 11:00', '2024-05-14 12:30', 'I', 'Készpénz', '')
+    (38, '2024-05-13 13:00', 16, 4, '2024-05-13 13:02', '2024-05-13 14:32', 'I', 'Bankkártya', '')
+    (39, '2024-05-15 09:00', 30, 4, '2024-05-15 09:05', '2024-05-15 10:35', 'I', 'Átutalás', '')
+    (40, '2024-05-26 14:00', 7, 1, '2024-05-26 14:00', '2024-05-26 15:30', 'I', 'Készpénz', '')
+    (41, '2024-05-30 14:00', 11, 7, '2024-05-30 14:00', '2024-05-30 15:30', 'N', 'Nincs', '')
+    (42, '2024-05-16 09:00', 4, 3, '2024-05-16 09:00', '2024-05-16 10:30', 'N', 'Nincs', '')
+    (43, '2024-05-01 11:00', 19, 7, '2024-05-01 11:08', '2024-05-01 12:38', 'N', 'Nincs', '')
+    (44, '2024-05-05 09:00', 38, 12, '2024-05-05 09:01', '2024-05-05 10:31', 'I', 'Bankkártya', '')
+    (45, '2024-05-11 08:00', 33, 15, '2024-05-11 08:08', '2024-05-11 09:38', 'I', 'Készpénz', '')
+    (46, '2024-05-31 12:00', 5, 10, '2024-05-31 12:03', '2024-05-31 13:33', 'I', 'Bankkártya', '')
+    (47, '2024-05-28 09:00', 16, 10, '2024-05-28 09:10', '2024-05-28 10:40', 'I', 'Bankkártya', '')
+    (48, '2024-05-03 11:00', 37, 9, '2024-05-03 11:00', '2024-05-03 12:30', 'N', 'Nincs', '')
+    (49, '2024-05-30 10:00', 16, 5, '2024-05-30 10:06', '2024-05-30 11:36', 'N', 'Nincs', '')
+    (50, '2024-05-05 13:00', 30, 6, '2024-05-05 13:00', '2024-05-05 14:30', 'I', 'Készpénz', '')
+    (51, '2024-05-15 12:00', 7, 2, '2024-05-15 12:00', '2024-05-15 13:30', 'I', 'Bankkártya', '')
+    (52, '2024-05-09 09:00', 5, 15, '2024-05-09 09:00', '2024-05-09 10:30', 'I', 'Átutalás', '')
+    (53, '2024-05-10 09:00', 20, 10, '2024-05-10 09:09', '2024-05-10 10:39', 'I', 'Bankkártya', '')
+    (54, '2024-05-27 12:00', 9, 5, '2024-05-27 12:02', '2024-05-27 13:32', 'I', 'Készpénz', '')
+    (55, '2024-05-24 12:00', 39, 4, '2024-05-24 12:05', '2024-05-24 13:35', 'N', 'Nincs', '')
+    (56, '2024-05-07 13:00', 17, 9, '2024-05-07 13:00', '2024-05-07 14:30', 'N', 'Nincs', '')
+    (57, '2024-05-09 14:00', 18, 1, '2024-05-09 14:07', '2024-05-09 15:37', 'I', 'Átutalás', '')
+    (58, '2024-05-25 09:00', 17, 3, '2024-05-25 09:00', '2024-05-25 10:30', 'N', 'Nincs', '')
+    (59, '2024-05-18 13:00', 8, 2, '2024-05-18 13:01', '2024-05-18 14:31', 'I', 'Bankkártya', '')
+    (60, '2024-05-02 14:00', 10, 7, '2024-05-02 14:09', '2024-05-02 15:39', 'I', 'Készpénz', '')
+
 
 --Szolgaltatasok tabla letrehozasa--
 
@@ -82,6 +146,20 @@ ALTER TABLE szolgaltatasok ADD CONSTRAINT szolgaltatasok_megnevezes_un UNIQUE ( 
 ALTER TABLE szolgaltatasok
     ADD CONSTRAINT szolgaltatasok_kedvezmeny_fk FOREIGN KEY ( kedvezmeny_fk )
         REFERENCES kedvezmeny ( kedvezmeny_id );
+
+INSERT INTO szolgaltatasok (szolgaltatas_id, megnevezes, ar, kedvezmeny_fk)
+VALUES 
+    (1, 'Hajvágás', 5000, 1),
+    (2, 'Hajfestés', 8000, 2),
+    (3, 'Fodrászati kezelés', 10000, 3),
+    (4, 'Hajszárítás', 3000, 4),
+    (5, 'Szakáll vágás', 2000, 5),
+    (6, 'Rövid hajvágás', 4000, 1),
+    (7, 'Színezés', 9000, 2),
+    (8, 'Hajmosás', 2000, 3),
+    (9, 'Férfi fodrászat', 6000, 4),
+    (10, 'Extra kezelés', 12000, 5);
+
 
 --Foglalasokat es Szolgaltatasokat osszekotjuk a Foglalas_szolgaltatas tablaval
 
@@ -106,6 +184,15 @@ CREATE TABLE kedvezmeny (
 
 ALTER TABLE kedvezmeny ADD CONSTRAINT kedvezmeny_pk PRIMARY KEY ( kedvezmeny_id );
 
+INSERT INTO kedvezmeny (kedvezmeny_id, szazalek)
+VALUES 
+    (1, 0.0),
+    (2, 0.25),
+    (3, 0.30),
+    (4, 0.5),
+    (5, 0.7);
+
+
 --Munkanapok tabla letrehozasa--
 
 CREATE TABLE munkanapok (
@@ -129,6 +216,8 @@ VALUES
     (6, 'Szombat'),
     (7, 'Vasárnap');
 
+--Fodraszokat es Munkanapokat osszekotjuk a Fodraszok_munkanapok tablaval
+
 
 --Ugyfelek tabla letrehozasa--
 
@@ -145,3 +234,47 @@ ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_pk PRIMARY KEY ( ugyfel_id );
 ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_telefonszam_un UNIQUE ( telefonszam );
 
 ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_email_un UNIQUE ( email );
+
+INSERT INTO ugyfelek (ugyfel_id, nev, telefonszam, email, legutobbi_latogatas)
+VALUES 
+    (1, 'Kovács János', 06301234567, 'janos.kovacs437@gmail.com', '2023-10-15'),
+    (2, 'Nagy Klára', 06305432123, 'klara.nagy941@gmail.com', '2024-04-20'),
+    (3, 'Tóth Anna', 06309876543, 'anna.toth590@gmail.com', '2024-03-05'),
+    (4, 'Varga Péter', 06301234568, 'peter.varga537@gmail.com', '2024-04-30'),
+    (5, 'Kiss Éva', 06305432124, 'eva.kiss328@gmail.com', '2024-05-02'),
+    (6, 'Molnár Gábor', 06309876544, 'gabor.molnar659@gmail.com', '2024-04-15'),
+    (7, 'Szabó Ádám', 06301234569, 'adam.szabo672@gmail.com', '2024-04-25'),
+    (8, 'Horváth Éva', 06305432125, 'eva.horvath922@gmail.com', '2024-03-18'),
+    (9, 'Farkas Jánosné', 06309876545, 'janosne.farkas965@gmail.com', '2024-04-10'),
+    (10, 'Kovács Attila', 06301234570, 'attila.kovacs111@gmail.com', '2024-04-05'),
+    (11, 'Németh Eszter', 06305432126, 'eszter.nemeth886@gmail.com', '2024-04-28'),
+    (12, 'Kiss Gergő', 06309876546, 'gergo.kiss001@gmail.com', '2024-04-23'),
+    (13, 'Takács Petra', 06301234571, 'petra.takacs543@gmail.com', '2024-05-01'),
+    (14, 'Mészáros Béla', 06305432127, 'bela.meszaros872@gmail.com', '2024-03-30'),
+    (15, 'Simon Zsuzsa', 06309876547, 'zsuzsa.simon223@gmail.com', '2024-04-15'),
+    (16, 'Kovács Bence', 06301234572, 'bence.kovacs431@gmail.com', '2024-04-29'),
+    (17, 'Török Anna', 06305432128, 'anna.torok332@gmail.com', '2024-04-12'),
+    (18, 'Molnár Balázs', 06309876548, 'balazs.molnar677@gmail.com', '2024-03-25'),
+    (19, 'Fekete Katalin', 06301234573, 'katalin.fekete234@gmail.com', '2024-04-02'),
+    (20, 'Nagy László', 06305432129, 'laszlo.nagy447@gmail.com', '2024-04-19'),
+    (21, 'Varga Éva', 06309876549, 'eva.varga012@gmail.com', '2024-03-20'),
+    (22, 'Kiss Márton', 06301234574, 'marton.kiss210@gmail.com', '2024-04-14'),
+    (23, 'Takács Kinga', 06305432130, 'kinga.takacs542@gmail.com', '2024-04-27'),
+    (24, 'Szabó András', 06309876550, 'andras.szabo555@gmail.com', '2024-04-08'),
+    (25, 'Nagy Edit', 06301234575, 'edit.nagy432@gmail.com', '2024-04-17'),
+    (26, 'Kovács Gábor', 06305432131, 'gabor.kovacs999@gmail.com', '2024-03-22'),
+    (27, 'Fekete Péter', 06309876551, 'peter.fekete321@gmail.com', '2024-04-13'),
+    (28, 'Molnár Anna', 06301234576, 'anna.molnar555@gmail.com', '2024-04-24'),
+    (29, 'Varga János', 06305432132, 'janos.varga777@gmail.com', '2024-03-28'),
+    (30, 'Kiss Anna', 06309876552, 'anna.kiss023@gmail.com', '2024-04-09'),
+    (31, 'Tóth Gergő', 06301234577, 'gergo.toth225@gmail.com', '2024-04-16'),
+    (32, 'Németh Réka', 06305432133, 'reka.nemeth654@gmail.com', '2024-04-21'),
+    (33, 'Horváth Márton', 06309876553, 'marton.horvath777@gmail.com', '2024-03-24'),
+    (34, 'Simon Péter', 06301234578, 'peter.simon789@gmail.com', '2024-04-11'),
+    (35, 'Kovács Réka', 06305432134, 'reka.kovacs782@gmail.com', '2024-03-29'),
+    (06, 'Szabó Gábor', 06309876554, 'gabor.szabo362@gmail.com', '2024-04-18'),
+    (37, 'Tóth Júlia', 06301234579, 'julia.toth292@gmail.com', '2024-03-31'),
+    (38, 'Nagy Gergő', 06305432135, 'gergo.nagy423@gmail.com', '2024-04-22'),
+    (39, 'Kiss Dóra', 06309876555, 'dora.kiss278@gmail.com', '2024-03-26'),
+    (40, 'Szabó Réka', 06309876580, 'reka.szabo288@gmail.com', '2024-04-28');
+
