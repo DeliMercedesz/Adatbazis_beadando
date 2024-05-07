@@ -16,7 +16,7 @@ ALTER TABLE fodraszok ADD CONSTRAINT fodraszok_telefonszam_un UNIQUE ( telefonsz
 
 ALTER TABLE fodraszok ADD CONSTRAINT fodraszok_email_un UNIQUE ( email );
 
-INSERT INTO fodraszok (fodrasz_id, nev, telefonszam, email, ertekeles, munkanap_fk)
+INSERT INTO fodraszok (fodrasz_id, nev, telefonszam, email, ertekeles)
 VALUES 
     (1, 'Kovács Bence', 06301234567, 'bence.kovacs123@gmail.com', 4),
     (2, 'Nagy Eszter', 06305432123, 'eszter.nagy456@gmail.com', 5),
