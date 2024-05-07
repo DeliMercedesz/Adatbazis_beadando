@@ -4,6 +4,6 @@ Ha itt vagy akkor biztos kíváncsi vagy milyen jó adatbázist raktunk össze a
 
 Csapattagok✨
 
-Deli Mercédesz / MAX38O
-Dani Letícia / FFEUMO
-Szerdahelyi Anna /
+Deli Mercédesz - MAX38O / Dani Letícia - FFEUMO / Szerdahelyi Anna - 
+
+
