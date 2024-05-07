@@ -69,7 +69,7 @@ ALTER TABLE foglalasok
 INSERT INTO foglalasok (foglalas_id, idopont, ugyfel_fk, fodrasz_fk, kezdes, befejezes, fizetve, fizetesi_mod, megjegyzes)
 VALUES 
     (1, '2024-05-10 10:00', 3, 15, '2024-05-10 10:00', '2024-05-10 11:30', 'N', 'Nincs', '')
-    (2, '2024-05-21 08:00', 16, 4, '2024-05-21 08:05', '2024-05-21 09:35', 'I', 'Bankkártya', ‘Freestyle kezelés')
+    (2, '2024-05-21 08:00', 16, 4, '2024-05-21 08:05', '2024-05-21 09:35', 'I', 'Bankkártya', 'Freestyle kezelés')
     (3, '2024-05-04 13:00', 35, 2, '2024-05-04 13:00', '2024-05-04 14:30', 'N', 'Nincs', Gyors kezelés')
     (4, '2024-05-02 08:00', 33, 10, '2024-05-02 08:04', '2024-05-02 09:34', 'I', 'Bankkártya', 'Gyors kezelés')
     (5, '2024-05-07 13:00', 35, 7, '2024-05-07 13:00', '2024-05-07 14:30', 'I', 'Átutalás', 'Gyors kezelés')
