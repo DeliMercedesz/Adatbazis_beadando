@@ -320,7 +320,107 @@ VALUES
     (7, 'Vasárnap');
 
 --Fodraszokat es Munkanapokat osszekotjuk a Fodraszok_munkanapok tablaval
+CREATE TABLE fodraszok_munkanapok (
+    munkanap_fk NUMBER NOT NULL,
+    fodrasz_fk  NUMBER NOT NULL
+);
 
+ALTER TABLE fodraszok_munkanapok
+    ADD CONSTRAINT fodraszok_mun_fk FOREIGN KEY ( fodrasz_fk )
+        REFERENCES fodraszok ( fodrasz_id );
+
+ALTER TABLE fodraszok_munkanapok
+    ADD CONSTRAINT munkanap_fod_fk FOREIGN KEY ( munkanap_fk )
+        REFERENCES munkanapok ( munkanap_id );
+
+INSERT INTO fodraszok_munkanapok (fodrasz_fk, munkanap_fk)
+VALUES
+    (1, 1),
+    (1, 2),
+    (1, 3),
+    (1, 5),
+    (1, 7),
+    (2, 1),
+    (2, 3),
+    (2, 4),
+    (2, 5),
+    (2, 6),
+    (2, 7),
+    (3, 1),
+    (3, 3),
+    (3, 5),
+    (3, 7),
+    (4, 2),
+    (4, 4),
+    (4, 5),
+    (4, 6),
+    (4, 7),
+    (5, 1),
+    (5, 2),
+    (5, 3),
+    (5, 4),
+    (5, 5),
+    (5, 6),
+    (5, 7),
+    (6, 1),
+    (6, 3),
+    (6, 4),
+    (6, 6),
+    (6, 7),
+    (7, 1),
+    (7, 2),
+    (7, 3),
+    (7, 5),
+    (7, 6),
+    (7, 7),
+    (8, 1),
+    (8, 3),
+    (8, 4),
+    (8, 5),
+    (8, 6),
+    (8, 7),
+    (9, 1),
+    (9, 2),
+    (9, 4),
+    (9, 5),
+    (9, 7),
+    (10, 2),
+    (10, 3),
+    (10, 4),
+    (10, 5),
+    (10, 6),
+    (10, 7),
+    (11, 1),
+    (11, 2),
+    (11, 3),
+    (11, 4),
+    (11, 5),
+    (11, 6),
+    (11, 7),
+    (12, 1),
+    (12, 2),
+    (12, 4),
+    (12, 6),
+    (12, 7),
+    (13, 1),
+    (13, 2),
+    (13, 3),
+    (13, 4),
+    (13, 5),
+    (13, 6),
+    (13, 7),
+    (14, 1),
+    (14, 2),
+    (14, 3),
+    (14, 4),
+    (14, 5),
+    (14, 6),
+    (14, 7),
+    (15, 1),
+    (15, 3),
+    (15, 5),
+    (15, 6),
+    (15, 7);
 
 --Ugyfelek tabla letrehozasa--
 
