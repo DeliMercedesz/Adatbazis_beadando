@@ -21,6 +21,24 @@ ALTER TABLE fodraszok
     ADD CONSTRAINT fodraszok_munkanapok_fk FOREIGN KEY ( munkanap_fk )
         REFERENCES munkanapok ( munkanap_id );
 
+INSERT INTO fodraszok (fodrasz_id, nev, telefonszam, email, ertekeles, munkanap_fk)
+VALUES 
+    (1, 'Kovács Bence', 06301234567, 'bence.kovacs123@gmail.com', 4, 1),
+    (2, 'Nagy Eszter', 06305432123, 'eszter.nagy456@gmail.com', 5, 2),
+    (3, 'Tóth Gábor', 06309876543, 'gabor.toth789@gmail.com', 3, 3),
+    (4, 'Molnár Péter', 06301234568, 'peter.molnar785@gmail.com', 4, 4),
+    (5, 'Szabó Anna', 06305432124, 'anna.szabo895@gmail.com', 4, 7),
+    (6, 'Kiss Dóra', 06309876544, 'dora.kiss412@gmail.com', 5, 6),
+    (7, 'Varga Zoltán', 06301234569, 'zoltan.varga566@gmail.com', 3, 1),
+    (8, 'Fekete Márton', 06305432125, 'marton.fekete845@gmail.com', 4, 2),
+    (9, 'Németh Réka', 06309876545, 'reka.nemeth415@gmail.com', 5, 3),
+    (10, 'Horváth János', 06301234570, 'janos.horvath515@gmail.com', 4, 7),
+    (11, 'Simon Éva', 06305432126, 'eva.simon512@gmail.com', 3, 5),
+    (12, 'Kovács Gergő', 06309876546, 'gergo.kovacs485@gmail.com', 5, 6),
+    (13, 'Takács Petra', 06301234571, 'petra.takacs789@gmail.com', 4, 7),
+    (14, 'Mészáros Tamás', 06305432127, 'tamas.meszaros456@gmail.com', 4, 2),
+    (15, 'Varga Kinga', 06309876547, 'kinga.varga785@gmail.com', 3, 3);
+
 --Foglalasok tabla letrehozasa
 
 CREATE TABLE foglalasok (
@@ -100,6 +118,17 @@ ALTER TABLE munkanapok
                          'Szombat', 'Vasárnap' ) );
 
 ALTER TABLE munkanapok ADD CONSTRAINT munkanapok_pk PRIMARY KEY ( munkanap_id );
+
+INSERT INTO munkanapok (munkanap_id, nap)
+VALUES 
+    (1, 'Hétfő'),
+    (2, 'Kedd'),
+    (3, 'Szerda'),
+    (4, 'Csütörtök'),
+    (5, 'Péntek'),
+    (6, 'Szombat'),
+    (7, 'Vasárnap');
+
 
 --Ugyfelek tabla letrehozasa--
 
