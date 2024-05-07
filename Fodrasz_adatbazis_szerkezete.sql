@@ -16,10 +16,6 @@ ALTER TABLE fodraszok ADD CONSTRAINT fodraszok_telefonszam_un UNIQUE ( telefonsz
 
 ALTER TABLE fodraszok ADD CONSTRAINT fodraszok_email_un UNIQUE ( email );
 
-ALTER TABLE fodraszok
-    ADD CONSTRAINT fodraszok_munkanapok_fk FOREIGN KEY ( munkanap_fk )
-        REFERENCES munkanapok ( munkanap_id );
-
 INSERT INTO fodraszok (fodrasz_id, nev, telefonszam, email, ertekeles, munkanap_fk)
 VALUES 
     (1, 'Kovács Bence', 06301234567, 'bence.kovacs123@gmail.com', 4),
