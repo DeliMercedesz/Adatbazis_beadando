@@ -6,7 +6,6 @@ CREATE TABLE fodraszok (
     telefonszam NUMBER(20) NOT NULL,
     email       NVARCHAR2(50),
     ertekeles   NUMBER,
-    munkanap_fk NUMBER NOT NULL
 );
 
 ALTER TABLE fodraszok ADD CHECK ( ertekeles BETWEEN 1 AND 5 );
