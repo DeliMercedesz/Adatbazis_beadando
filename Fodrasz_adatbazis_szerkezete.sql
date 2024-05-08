@@ -50,9 +50,6 @@ CREATE TABLE foglalasok (
 ALTER TABLE foglalasok
     ADD CONSTRAINT fizetes_mod_kenyszer CHECK ( fizetesi_mod IN ( 'Bankkártya', 'Készpénz', 'Nincs', 'Átutalás' ) );
 
-COMMENT ON COLUMN foglalasok.fizetesi_mod IS
-    'Van rajta kényszer';
-
 ALTER TABLE foglalasok ADD CONSTRAINT foglalasok_pk PRIMARY KEY ( foglalas_id );
 
 ALTER TABLE foglalasok
