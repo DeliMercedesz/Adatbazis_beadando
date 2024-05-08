@@ -1,11 +1,11 @@
 --Fodraszok tabla letrehozasa--
 
 CREATE TABLE fodraszok (
-    fodrasz_id  NUMBER NOT NULL,
-    nev         NVARCHAR2(50) NOT NULL,
-    telefonszam NUMBER(20) NOT NULL,
-    email       NVARCHAR2(50),
-    ertekeles   NUMBER,
+    fodrasz_id  INTEGER NOT NULL,
+    nev         NVARCHAR(50) NOT NULL,
+    telefonszam bigint NOT NULL,
+    email       NVARCHAR(50),
+    ertekeles   INTEGER,
 );
 
 ALTER TABLE fodraszok ADD CHECK ( ertekeles BETWEEN 1 AND 5 );
@@ -37,14 +37,14 @@ VALUES
 --Foglalasok tabla letrehozasa--
 
 CREATE TABLE foglalasok (
-    foglalas_id  NUMBER NOT NULL,
-    idopont      DATE NOT NULL,
-    ugyfel_fk    NUMBER NOT NULL,
-    fodrasz_fk   NUMBER NOT NULL,
-    kezdes       DATE NOT NULL,
-    befejezes    DATE NOT NULL,
-    fizetesi_mod NVARCHAR2(20) NOT NULL,
-    megjegyzes   NVARCHAR2(100)
+    foglalas_id  INTEGER NOT NULL,
+    idopont      DATETIME NOT NULL,
+    ugyfel_fk    INTEGER NOT NULL,
+    fodrasz_fk   INTEGER NOT NULL,
+    kezdes       DATETIME NOT NULL,
+    befejezes    DATETIME NOT NULL,
+    fizetesi_mod NVARCHAR(20) NOT NULL,
+    megjegyzes   NVARCHAR(100)
 );
 
 ALTER TABLE foglalasok
@@ -129,10 +129,10 @@ VALUES
 --Szolgaltatasok tabla letrehozasa--
 
 CREATE TABLE szolgaltatasok (
-    szolgaltatas_id NUMBER NOT NULL,
-    megnevezes      NVARCHAR2(50) NOT NULL,
-    ar              NUMBER NOT NULL,
-    kedvezmeny_fk   NUMBER NOT NULL
+    szolgaltatas_id INTEGER NOT NULL,
+    megnevezes      NVARCHAR(50) NOT NULL,
+    ar              INTEGER NOT NULL,
+    kedvezmeny_fk   INTEGER NOT NULL
 );
 
 ALTER TABLE szolgaltatasok ADD CONSTRAINT szolgaltatasok_pk PRIMARY KEY ( szolgaltatas_id );
@@ -160,8 +160,8 @@ VALUES
 --Foglalasokat es Szolgaltatasokat osszekotjuk a Foglalas_szolgaltatas tablaval
 
 CREATE TABLE foglalas_szolgaltatas (
-    foglalas_fk     NUMBER NOT NULL,
-    szolgaltatas_fk NUMBER NOT NULL
+    foglalas_fk     INTEGER NOT NULL,
+    szolgaltatas_fk INTEGER NOT NULL
 );
 
 ALTER TABLE foglalas_szolgaltatas
@@ -278,7 +278,7 @@ VALUES
 
 --Kedvezmegyek tabla letrehozasa--
 CREATE TABLE kedvezmeny (
-    kedvezmeny_id NUMBER NOT NULL,
+    kedvezmeny_id INTEGER NOT NULL,
     szazalek      FLOAT NOT NULL
 );
 
@@ -296,8 +296,8 @@ VALUES
 --Munkanapok tabla letrehozasa--
 
 CREATE TABLE munkanapok (
-    munkanap_id NUMBER NOT NULL,
-    nap         NVARCHAR2(1) NOT NULL
+    munkanap_id INTEGER NOT NULL,
+    nap         NVARCHAR(1) NOT NULL
 );
 
 ALTER TABLE munkanapok
@@ -318,8 +318,8 @@ VALUES
 
 --Fodraszokat es Munkanapokat osszekotjuk a Fodraszok_munkanapok tablaval
 CREATE TABLE fodraszok_munkanapok (
-    munkanap_fk NUMBER NOT NULL,
-    fodrasz_fk  NUMBER NOT NULL
+    munkanap_fk INTEGER NOT NULL,
+    fodrasz_fk  INTEGER NOT NULL
 );
 
 ALTER TABLE fodraszok_munkanapok
@@ -422,11 +422,11 @@ VALUES
 --Ugyfelek tabla letrehozasa--
 
 CREATE TABLE ugyfelek (
-    ugyfel_id           NUMBER NOT NULL,
-    nev                 NVARCHAR2(50) NOT NULL,
-    telefonszam         NUMBER(20) NOT NULL,
-    email               NVARCHAR2(50),
-    legutobbi_latogatas DATE
+    ugyfel_id           INTEGER NOT NULL,
+    nev                 NVARCHAR(50) NOT NULL,
+    telefonszam         bigint NOT NULL,
+    email               NVARCHAR(50),
+    legutobbi_latogatas DATETIME
 );
 
 ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_pk PRIMARY KEY ( ugyfel_id );
