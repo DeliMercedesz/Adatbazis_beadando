@@ -294,7 +294,7 @@ VALUES
 
 CREATE TABLE munkanapok (
     munkanap_id INTEGER NOT NULL,
-    nap         NVARCHAR(1) NOT NULL
+    nap         NVARCHAR(10) NOT NULL
 );
 
 ALTER TABLE munkanapok
