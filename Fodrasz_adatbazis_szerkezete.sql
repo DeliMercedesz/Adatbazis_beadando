@@ -472,7 +472,7 @@ VALUES
     (33, 'Horváth Márton', 06309876553, 'marton.horvath777@gmail.com', '2024-03-24'),
     (34, 'Simon Péter', 06301234578, 'peter.simon789@gmail.com', '2024-04-11'),
     (35, 'Kovács Réka', 06305432134, 'reka.kovacs782@gmail.com', '2024-03-29'),
-    (06, 'Szabó Gábor', 06309876554, 'gabor.szabo362@gmail.com', '2024-04-18'),
+    (36, 'Szabó Gábor', 06309876554, 'gabor.szabo362@gmail.com', '2024-04-18'),
     (37, 'Tóth Júlia', 06301234579, 'julia.toth292@gmail.com', '2024-03-31'),
     (38, 'Nagy Gergő', 06305432135, 'gergo.nagy423@gmail.com', '2024-04-22'),
     (39, 'Kiss Dóra', 06309876555, 'dora.kiss278@gmail.com', '2024-03-26'),
