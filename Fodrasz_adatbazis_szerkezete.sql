@@ -34,6 +34,65 @@ VALUES
     (14, 'Mészáros Tamás', 06305432127, 'tamas.meszaros456@gmail.com', 4),
     (15, 'Varga Kinga', 06309876547, 'kinga.varga785@gmail.com', 3);
 
+--Ugyfelek tabla letrehozasa--
+
+CREATE TABLE ugyfelek (
+    ugyfel_id           INTEGER NOT NULL,
+    nev                 NVARCHAR(50) NOT NULL,
+    telefonszam         bigint NOT NULL,
+    email               NVARCHAR(50),
+    legutobbi_latogatas DATETIME
+);
+
+ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_pk PRIMARY KEY ( ugyfel_id );
+
+ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_telefonszam_un UNIQUE ( telefonszam );
+
+ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_email_un UNIQUE ( email );
+
+INSERT INTO ugyfelek (ugyfel_id, nev, telefonszam, email, legutobbi_latogatas)
+VALUES 
+    (1, 'Kovács János', 06301234567, 'janos.kovacs437@gmail.com', '2023-10-15'),
+    (2, 'Nagy Klára', 06305432123, 'klara.nagy941@gmail.com', '2024-04-20'),
+    (3, 'Tóth Anna', 06309876543, 'anna.toth590@gmail.com', '2024-03-05'),
+    (4, 'Varga Péter', 06301234568, 'peter.varga537@gmail.com', '2024-04-30'),
+    (5, 'Kiss Éva', 06305432124, 'eva.kiss328@gmail.com', '2024-04-02'),
+    (6, 'Molnár Gábor', 06309876544, 'gabor.molnar659@gmail.com', '2024-04-15'),
+    (7, 'Szabó Ádám', 06301234569, 'adam.szabo672@gmail.com', '2024-04-25'),
+    (8, 'Horváth Éva', 06305432125, 'eva.horvath922@gmail.com', '2024-03-18'),
+    (9, 'Farkas Jánosné', 06309876545, 'janosne.farkas965@gmail.com', '2024-04-10'),
+    (10, 'Kovács Attila', 06301234570, 'attila.kovacs111@gmail.com', '2024-04-05'),
+    (11, 'Németh Eszter', 06305432126, 'eszter.nemeth886@gmail.com', '2024-04-28'),
+    (12, 'Kiss Gergő', 06309876546, 'gergo.kiss001@gmail.com', '2024-04-23'),
+    (13, 'Takács Petra', 06301234571, 'petra.takacs543@gmail.com', '2024-02-01'),
+    (14, 'Mészáros Béla', 06305432127, 'bela.meszaros872@gmail.com', '2024-03-30'),
+    (15, 'Simon Zsuzsa', 06309876547, 'zsuzsa.simon223@gmail.com', '2024-04-15'),
+    (16, 'Kovács Bence', 06301234572, 'bence.kovacs431@gmail.com', '2024-04-29'),
+    (17, 'Török Anna', 06305432128, 'anna.torok332@gmail.com', '2024-04-12'),
+    (18, 'Molnár Balázs', 06309876548, 'balazs.molnar677@gmail.com', '2024-03-25'),
+    (19, 'Fekete Katalin', 06301234573, 'katalin.fekete234@gmail.com', '2024-04-02'),
+    (20, 'Nagy László', 06305432129, 'laszlo.nagy447@gmail.com', '2024-04-19'),
+    (21, 'Varga Éva', 06309876549, 'eva.varga012@gmail.com', '2024-03-20'),
+    (22, 'Kiss Márton', 06301234574, 'marton.kiss210@gmail.com', '2024-04-14'),
+    (23, 'Takács Kinga', 06305432130, 'kinga.takacs542@gmail.com', '2024-04-27'),
+    (24, 'Szabó András', 06309876550, 'andras.szabo555@gmail.com', '2024-04-08'),
+    (25, 'Nagy Edit', 06301234575, 'edit.nagy432@gmail.com', '2024-04-17'),
+    (26, 'Kovács Gábor', 06305432131, 'gabor.kovacs999@gmail.com', '2024-03-22'),
+    (27, 'Fekete Péter', 06309876551, 'peter.fekete321@gmail.com', '2024-04-13'),
+    (28, 'Molnár Anna', 06301234576, 'anna.molnar555@gmail.com', '2024-04-24'),
+    (29, 'Varga János', 06305432132, 'janos.varga777@gmail.com', '2024-03-28'),
+    (30, 'Kiss Anna', 06309876552, 'anna.kiss023@gmail.com', '2024-04-09'),
+    (31, 'Tóth Gergő', 06301234577, 'gergo.toth225@gmail.com', '2024-04-16'),
+    (32, 'Németh Réka', 06305432133, 'reka.nemeth654@gmail.com', '2024-04-21'),
+    (33, 'Horváth Márton', 06309876553, 'marton.horvath777@gmail.com', '2024-03-24'),
+    (34, 'Simon Péter', 06301234578, 'peter.simon789@gmail.com', '2024-04-11'),
+    (35, 'Kovács Réka', 06305432134, 'reka.kovacs782@gmail.com', '2024-03-29'),
+    (36, 'Szabó Gábor', 06309876554, 'gabor.szabo362@gmail.com', '2024-04-18'),
+    (37, 'Tóth Júlia', 06301234579, 'julia.toth292@gmail.com', '2024-03-31'),
+    (38, 'Nagy Gergő', 06305432135, 'gergo.nagy423@gmail.com', '2024-04-22'),
+    (39, 'Kiss Dóra', 06309876555, 'dora.kiss278@gmail.com', '2024-03-26'),
+    (40, 'Szabó Réka', 06309876580, 'reka.szabo288@gmail.com', '2024-04-28');
+
 --Foglalasok tabla letrehozasa--
 
 CREATE TABLE foglalasok (
@@ -122,7 +181,23 @@ VALUES
     (58, '2024-05-25 09:00', 17, 3, '2024-05-25 09:00', '2024-05-25 10:30', 'Nincs', ''),
     (59, '2024-05-18 13:00', 8, 2, '2024-05-18 13:01', '2024-05-18 14:31', 'Bankkártya', ''),
     (60, '2024-05-02 14:00', 10, 7, '2024-05-02 14:09', '2024-05-02 15:39', 'Készpénz', '');
-    
+
+--Kedvezmegyek tabla letrehozasa--
+CREATE TABLE kedvezmeny (
+    kedvezmeny_id INTEGER NOT NULL,
+    szazalek      FLOAT NOT NULL
+);
+
+ALTER TABLE kedvezmeny ADD CONSTRAINT kedvezmeny_pk PRIMARY KEY ( kedvezmeny_id );
+
+INSERT INTO kedvezmeny (kedvezmeny_id, szazalek)
+VALUES 
+    (1, 0.0),
+    (2, 0.25),
+    (3, 0.30),
+    (4, 0.5),
+    (5, 0.7);
+
 --Szolgaltatasok tabla letrehozasa--
 
 CREATE TABLE szolgaltatasok (
@@ -272,24 +347,6 @@ VALUES
     (14, 6),
     (44, 1);
 
-
---Kedvezmegyek tabla letrehozasa--
-CREATE TABLE kedvezmeny (
-    kedvezmeny_id INTEGER NOT NULL,
-    szazalek      FLOAT NOT NULL
-);
-
-ALTER TABLE kedvezmeny ADD CONSTRAINT kedvezmeny_pk PRIMARY KEY ( kedvezmeny_id );
-
-INSERT INTO kedvezmeny (kedvezmeny_id, szazalek)
-VALUES 
-    (1, 0.0),
-    (2, 0.25),
-    (3, 0.30),
-    (4, 0.5),
-    (5, 0.7);
-
-
 --Munkanapok tabla letrehozasa--
 
 CREATE TABLE munkanapok (
@@ -415,63 +472,3 @@ VALUES
     (15, 5),
     (15, 6),
     (15, 7);
-
---Ugyfelek tabla letrehozasa--
-
-CREATE TABLE ugyfelek (
-    ugyfel_id           INTEGER NOT NULL,
-    nev                 NVARCHAR(50) NOT NULL,
-    telefonszam         bigint NOT NULL,
-    email               NVARCHAR(50),
-    legutobbi_latogatas DATETIME
-);
-
-ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_pk PRIMARY KEY ( ugyfel_id );
-
-ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_telefonszam_un UNIQUE ( telefonszam );
-
-ALTER TABLE ugyfelek ADD CONSTRAINT ugyfelek_email_un UNIQUE ( email );
-
-INSERT INTO ugyfelek (ugyfel_id, nev, telefonszam, email, legutobbi_latogatas)
-VALUES 
-    (1, 'Kovács János', 06301234567, 'janos.kovacs437@gmail.com', '2023-10-15'),
-    (2, 'Nagy Klára', 06305432123, 'klara.nagy941@gmail.com', '2024-04-20'),
-    (3, 'Tóth Anna', 06309876543, 'anna.toth590@gmail.com', '2024-03-05'),
-    (4, 'Varga Péter', 06301234568, 'peter.varga537@gmail.com', '2024-04-30'),
-    (5, 'Kiss Éva', 06305432124, 'eva.kiss328@gmail.com', '2024-04-02'),
-    (6, 'Molnár Gábor', 06309876544, 'gabor.molnar659@gmail.com', '2024-04-15'),
-    (7, 'Szabó Ádám', 06301234569, 'adam.szabo672@gmail.com', '2024-04-25'),
-    (8, 'Horváth Éva', 06305432125, 'eva.horvath922@gmail.com', '2024-03-18'),
-    (9, 'Farkas Jánosné', 06309876545, 'janosne.farkas965@gmail.com', '2024-04-10'),
-    (10, 'Kovács Attila', 06301234570, 'attila.kovacs111@gmail.com', '2024-04-05'),
-    (11, 'Németh Eszter', 06305432126, 'eszter.nemeth886@gmail.com', '2024-04-28'),
-    (12, 'Kiss Gergő', 06309876546, 'gergo.kiss001@gmail.com', '2024-04-23'),
-    (13, 'Takács Petra', 06301234571, 'petra.takacs543@gmail.com', '2024-02-01'),
-    (14, 'Mészáros Béla', 06305432127, 'bela.meszaros872@gmail.com', '2024-03-30'),
-    (15, 'Simon Zsuzsa', 06309876547, 'zsuzsa.simon223@gmail.com', '2024-04-15'),
-    (16, 'Kovács Bence', 06301234572, 'bence.kovacs431@gmail.com', '2024-04-29'),
-    (17, 'Török Anna', 06305432128, 'anna.torok332@gmail.com', '2024-04-12'),
-    (18, 'Molnár Balázs', 06309876548, 'balazs.molnar677@gmail.com', '2024-03-25'),
-    (19, 'Fekete Katalin', 06301234573, 'katalin.fekete234@gmail.com', '2024-04-02'),
-    (20, 'Nagy László', 06305432129, 'laszlo.nagy447@gmail.com', '2024-04-19'),
-    (21, 'Varga Éva', 06309876549, 'eva.varga012@gmail.com', '2024-03-20'),
-    (22, 'Kiss Márton', 06301234574, 'marton.kiss210@gmail.com', '2024-04-14'),
-    (23, 'Takács Kinga', 06305432130, 'kinga.takacs542@gmail.com', '2024-04-27'),
-    (24, 'Szabó András', 06309876550, 'andras.szabo555@gmail.com', '2024-04-08'),
-    (25, 'Nagy Edit', 06301234575, 'edit.nagy432@gmail.com', '2024-04-17'),
-    (26, 'Kovács Gábor', 06305432131, 'gabor.kovacs999@gmail.com', '2024-03-22'),
-    (27, 'Fekete Péter', 06309876551, 'peter.fekete321@gmail.com', '2024-04-13'),
-    (28, 'Molnár Anna', 06301234576, 'anna.molnar555@gmail.com', '2024-04-24'),
-    (29, 'Varga János', 06305432132, 'janos.varga777@gmail.com', '2024-03-28'),
-    (30, 'Kiss Anna', 06309876552, 'anna.kiss023@gmail.com', '2024-04-09'),
-    (31, 'Tóth Gergő', 06301234577, 'gergo.toth225@gmail.com', '2024-04-16'),
-    (32, 'Németh Réka', 06305432133, 'reka.nemeth654@gmail.com', '2024-04-21'),
-    (33, 'Horváth Márton', 06309876553, 'marton.horvath777@gmail.com', '2024-03-24'),
-    (34, 'Simon Péter', 06301234578, 'peter.simon789@gmail.com', '2024-04-11'),
-    (35, 'Kovács Réka', 06305432134, 'reka.kovacs782@gmail.com', '2024-03-29'),
-    (36, 'Szabó Gábor', 06309876554, 'gabor.szabo362@gmail.com', '2024-04-18'),
-    (37, 'Tóth Júlia', 06301234579, 'julia.toth292@gmail.com', '2024-03-31'),
-    (38, 'Nagy Gergő', 06305432135, 'gergo.nagy423@gmail.com', '2024-04-22'),
-    (39, 'Kiss Dóra', 06309876555, 'dora.kiss278@gmail.com', '2024-03-26'),
-    (40, 'Szabó Réka', 06309876580, 'reka.szabo288@gmail.com', '2024-04-28');
-
