@@ -192,7 +192,7 @@ ALTER TABLE kedvezmeny ADD CONSTRAINT kedvezmeny_pk PRIMARY KEY ( kedvezmeny_id 
 
 INSERT INTO kedvezmeny (kedvezmeny_id, szazalek)
 VALUES 
-    (1, 0.0),
+    (1, 1.0), --Nincs kedvezmeny--
     (2, 0.25),
     (3, 0.30),
     (4, 0.5),
@@ -223,9 +223,9 @@ VALUES
     (4, 'Hajszárítás', 3000, 4),
     (5, 'Szakáll vágás', 2000, 5),
     (6, 'Rövid hajvágás', 4000, 1),
-    (7, 'Színezés', 9000, 2),
+    (7, 'Színezés', 9000, 1),
     (8, 'Hajmosás', 2000, 3),
-    (9, 'Férfi fodrászat', 6000, 4),
+    (9, 'Férfi fodrászat', 6000, 1),
     (10, 'Extra kezelés', 12000, 5);
 
 
