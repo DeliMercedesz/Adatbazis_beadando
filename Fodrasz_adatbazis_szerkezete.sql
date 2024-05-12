@@ -192,7 +192,7 @@ ALTER TABLE kedvezmeny ADD CONSTRAINT kedvezmeny_pk PRIMARY KEY ( kedvezmeny_id 
 
 INSERT INTO kedvezmeny (kedvezmeny_id, szazalek)
 VALUES 
-    (1, 1.0), --Nincs kedvezmeny--
+    (1, 0.0), --Nincs kedvezmeny--
     (2, 0.25),
     (3, 0.30),
     (4, 0.5),
